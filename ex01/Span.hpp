@@ -6,13 +6,16 @@
 /*   By: tedelin <tedelin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 16:56:40 by tedelin           #+#    #+#             */
-/*   Updated: 2023/06/27 16:24:17 by tedelin          ###   ########.fr       */
+/*   Updated: 2023/06/28 14:12:50 by tedelin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
+# include <iostream>
 # include <exception>
+# include <vector>
+# include <algorithm>
 
 class Span {
     public:
@@ -23,16 +26,27 @@ class Span {
         Span & operator=(const Span& rhs);
 
         void    addNumber(int n);
+        int     shortestSpan();
+        int     longestSpan();
 
-        class MaxException : public std::exception {
+        class MaxCapacityException : public std::exception {
             public:
                 virtual const char* what() const throw() {
-                    return ("Maximum capacity");
+                    return ("Error : span reach maximum capacity");
+                }
+        };
+        class ToSmallSpanException : public std::exception {
+            public:
+                virtual const char* what() const throw() {
+                    return ("Error : span must contain at least two numbers");
                 }
         };
 
     private:
-        unsigned int _max;
+        Span();
+        
+        unsigned int _size;
+        std::vector<int> _container;
 };
 
 #endif

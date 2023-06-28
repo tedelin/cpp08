@@ -6,11 +6,11 @@
 #    By: tedelin <tedelin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/15 17:24:24 by tedelin           #+#    #+#              #
-#    Updated: 2023/06/26 16:52:15 by tedelin          ###   ########.fr        #
+#    Updated: 2023/06/28 12:51:40 by tedelin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = ex01
 SRC = main.cpp Span.cpp
 HEADER = Span.hpp
 OBJ = $(SRC:.cpp=.o)
