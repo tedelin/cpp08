@@ -6,11 +6,11 @@
 #    By: tedelin <tedelin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/15 17:24:24 by tedelin           #+#    #+#              #
-#    Updated: 2023/06/26 16:52:27 by tedelin          ###   ########.fr        #
+#    Updated: 2023/06/29 13:10:55 by tedelin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = ex02
 SRC = main.cpp
 HEADER = MutantStack.hpp
 OBJ = $(SRC:.cpp=.o)
