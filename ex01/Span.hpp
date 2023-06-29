@@ -6,7 +6,7 @@
 /*   By: tedelin <tedelin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 16:56:40 by tedelin           #+#    #+#             */
-/*   Updated: 2023/06/28 14:12:50 by tedelin          ###   ########.fr       */
+/*   Updated: 2023/06/29 10:42:10 by tedelin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Span {
         Span & operator=(const Span& rhs);
 
         void    addNumber(int n);
+        void    addRange(std::vector<int> newNb);
         int     shortestSpan();
         int     longestSpan();
 

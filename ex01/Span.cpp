@@ -6,7 +6,7 @@
 /*   By: tedelin <tedelin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 16:56:42 by tedelin           #+#    #+#             */
-/*   Updated: 2023/06/28 14:15:07 by tedelin          ###   ########.fr       */
+/*   Updated: 2023/06/29 13:32:53 by tedelin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ Span::Span() : _size(0) {}
 
 Span::Span(unsigned int n) : _size(0) {
     _container.reserve(n);
+    // std::cout << "capa  : " << _container.capacity() << std::endl;
 }
 
 Span::Span(const Span& cpy) {
@@ -41,6 +42,14 @@ void    Span::addNumber(int n) {
         _size++;
         _container.push_back(n);
     }
+}
+
+void    Span::addRange(std::vector<int> newNb)
+{
+    if (_size + newNb.size() > _container.capacity())
+        throw MaxCapacityException();
+    _container.insert(_container.end(), newNb.begin(), newNb.end());
+    _size += newNb.size();
 }
 
 int Span::longestSpan() {
