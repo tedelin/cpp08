@@ -6,7 +6,7 @@
 /*   By: tedelin <tedelin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 16:57:08 by tedelin           #+#    #+#             */
-/*   Updated: 2023/06/29 13:12:09 by tedelin          ###   ########.fr       */
+/*   Updated: 2023/06/29 14:46:19 by tedelin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 int main()
 {
     {
-
         MutantStack<int> mstack;
         mstack.push(5);
         mstack.push(17);
@@ -57,5 +56,25 @@ int main()
             std::cout << *it << std::endl;
         ++it; }
         return 0;
+    }
+	{
+        MutantStack<int> mstack;
+        mstack.push(5);
+        mstack.push(17);
+        std::cout << mstack.top() << std::endl;
+        mstack.pop();
+        std::cout << mstack.size() << std::endl;
+        mstack.push(3);
+        mstack.push(5); 
+        mstack.push(737); //[...] 
+        mstack.push(0);
+        MutantStack<int>::reverse_iterator it = mstack.rbegin();
+        MutantStack<int>::reverse_iterator ite = mstack.rend();
+        ++it;
+        --it;
+        while (it != ite) {
+            std::cout << *it << std::endl;
+        ++it; }
+        std::stack<int> s(mstack); 
     }
 }
