@@ -6,7 +6,7 @@
 /*   By: tedelin <tedelin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 16:56:30 by tedelin           #+#    #+#             */
-/*   Updated: 2023/06/27 16:13:17 by tedelin          ###   ########.fr       */
+/*   Updated: 2023/06/30 11:08:09 by tedelin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 # include <iostream>
 # include <vector>
 # include <exception> 
-# include <array>
+# include <algorithm>
 # include <list>
 # include <deque>
 # include <vector>
-# include <forward_list>
 
 class EltNotFoundException : public std::exception
 {
@@ -28,19 +27,15 @@ class EltNotFoundException : public std::exception
         virtual const char* what() const throw() {
             return ("Element not found");
         }
-
 };
 
 template <typename T>
 void    easyfind(T& container, int second)
 {
-    for (typename T::iterator it = container.begin(); it != container.end(); it++) {
-        if (*it == second) {
-            std::cout << "Element found" << std::endl;
-            return ;
-        }
-    }
-    throw EltNotFoundException();
+   if (std::find(container.begin(), container.end(), second) != container.end())
+		std::cout << "Element found" << std::endl;
+	else
+    	throw EltNotFoundException();
 }
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tedelin <tedelin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 16:56:42 by tedelin           #+#    #+#             */
-/*   Updated: 2023/06/29 13:32:53 by tedelin          ###   ########.fr       */
+/*   Updated: 2023/06/30 11:05:20 by tedelin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ Span::Span() : _size(0) {}
 
 Span::Span(unsigned int n) : _size(0) {
     _container.reserve(n);
-    // std::cout << "capa  : " << _container.capacity() << std::endl;
 }
 
 Span::Span(const Span& cpy) {
@@ -70,7 +69,7 @@ int Span::shortestSpan() {
         std::sort (_container.begin(), _container.end());
         int shortest = _container[_container.size() - 1] - _container[_container.size() - 2];
         for (unsigned int i = _container.size() - 1; i > 0; i--) {
-            if (_container[i] - _container[i -1] < shortest) {
+            if (_container[i] - _container[i - 1] < shortest) {
                 shortest = _container[i] - _container[i -1];
             }
         }
